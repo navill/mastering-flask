@@ -1,0 +1,30 @@
+blog/controllers.py
+
+def home(page=1):
+    posts = Post.query.order_by(Post.publish_date.desc()).paginate(page,
+                                                                   current_app.config.get('POSTS_PER_PAGE', 10),
+                                                                   False)
+
+def new_post():
+...
+remove datetime.datetime.now
+
+
+def edit_post():
+..
+# replace add by merge
+db.session.merge(post)
+
+Check requirements.txt
+
+Change test_data.py (generate_users)
+
+Update manage.py
+
+- Update api
+
+- Update config.py with CELERY_RESULT_BACKEND
+
+- Update celery_runner.py
+
+- Update all admin module

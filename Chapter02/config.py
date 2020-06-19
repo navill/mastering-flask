@@ -1,0 +1,12 @@
+class Config(object):
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class ProdConfig(Config):
+    pass
+
+
+class DevConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
+    # SQLALCHEMY_ECHO = True  # SQL 쿼리문으로 변환하여 로그에 출력
