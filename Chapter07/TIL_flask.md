@@ -104,6 +104,8 @@ class Post(mongo.Document):
 user = User.objects.first()
 posts = Post.objects(user=user)
 
+
+
 # EmbeddedDocumentField
 class Post(mongo.Document): 
     ... 
@@ -113,7 +115,8 @@ comment = Comment()
 comment.name = "Jack"
 comment.text = "I really like this post!"
 
-post.comments.append(comment)
+# comment는 실제 mongodb 객체가 아닌 추상 객체이므로 comment.save()는 하지 않는다.
+post.comments.append(comment)  
 post.save()
 post.comments
 # [<Comment 'I really like this post!'>]
